@@ -1,219 +1,55 @@
-
-import os
-
-html_content = """
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>داشبورد ارز دیجیتال</title>
+    <title>Mafia RP | Z.IRANLS</title>
     <style>
-        body { font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; background-color: #121212; color: #e0e0e0; margin: 0; padding: 20px; }
-        .container { max-width: 1200px; margin: auto; }
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #333;
-            margin-bottom: 30px;
-        }
-        .header h1 { color: #bb86fc; margin: 0; }
-        .header .ai-insight {
-            background-color: #333;
-            padding: 10px 15px;
-            border-radius: 8px;
-            font-size: 0.9em;
-            border: 1px solid #6200ee;
-        }
-        .header .ai-insight strong { color: #bb86fc; }
-
-        .crypto-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 30px;
-        }
-        .crypto-table th, .crypto-table td {
-            padding: 12px 15px;
-            text-align: right;
-            border-bottom: 1px solid #333;
-        }
-        .crypto-table th {
-            background-color: #1f1f1f;
-            color: #bb86fc;
-            font-weight: bold;
-        }
-        .crypto-table td {
-            background-color: #1e1e1e;
-        }
-        .crypto-table tbody tr:hover {
-            background-color: #2a2a2a;
-        }
-        .crypto-table .coin-name {
-            font-weight: bold;
-            color: #ffffff;
-            display: flex;
-            align-items: center;
-        }
-        .crypto-table .coin-name img { margin-left: 10px; width: 24px; height: 24px; }
-        .crypto-table .price-usd, .crypto-table .price-toman {
-            color: #03dac6;
-            font-family: "Courier New", Courier, monospace;
-        }
-        .crypto-table .market-cap, .crypto-table .volume {
-            color: #999;
-            font-size: 0.9em;
-        }
-        .crypto-table .change {
-            padding-right: 20px;
-        }
-        .change.positive { color: #3ddc97; }
-        .change.negative { color: #ff6b6b; }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .header h1 { font-size: 1.8em; margin-bottom: 10px; }
-            .header .ai-insight {
-                width: 100%;
-                text-align: center;
-                margin-top: 10px;
-            }
-            .crypto-table th, .crypto-table td {
-                padding: 8px 10px;
-                font-size: 0.9em;
-            }
-            .crypto-table .coin-name img { display: none; } /* Hide coin icons on smaller screens */
-        }
+        :root { --dark: #050505; --blood: #8b0000; --gold: #c5a059; }
+        body { background: var(--dark); color: #e0e0e0; font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 0; }
+        
+        .container { max-width: 900px; margin: 50px auto; background: #111; padding: 40px; border: 1px solid #333; box-shadow: 0 0 20px rgba(0,0,0,0.5); }
+        
+        .header { text-align: center; border-bottom: 2px solid var(--blood); padding-bottom: 20px; margin-bottom: 30px; }
+        h1 { color: #fff; text-transform: uppercase; letter-spacing: 3px; margin: 0; }
+        .status { color: #4caf50; font-size: 0.9em; margin-top: 10px; font-weight: bold; }
+        
+        .nav-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 40px; }
+        .btn { display: block; padding: 20px; text-align: center; background: #1a1a1a; border: 1px solid var(--gold); color: var(--gold); text-decoration: none; font-weight: bold; transition: 0.3s; }
+        .btn:hover { background: var(--blood); color: #fff; border-color: var(--blood); }
+        
+        .rules { background: #0a0a0a; padding: 25px; border-right: 5px solid var(--blood); }
+        .rules h2 { color: var(--gold); margin-top: 0; }
+        ol { padding-right: 20px; }
+        li { margin-bottom: 15px; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>داشبورد ارز دیجیتال</h1>
-            <div class="ai-insight">
-                <strong>هوش مصنوعی تحلیلی:</strong> <span id="ai-status">در حال تحلیل بازار...</span>
-            </div>
-        </div>
 
-        <table class="crypto-table">
-            <thead>
-                <tr>
-                    <th>نام ارز</th>
-                    <th>قیمت (دلار)</th>
-                    <th>قیمت (تومان)</th>
-                    <th>تغییرات (۲۴ساعت)</th>
-                    <th class="market-cap">ارزش بازار</th>
-                    <th class="volume">حجم معاملات (۲۴ساعت)</th>
-                </tr>
-            </thead>
-            <tbody id="crypto-list">
-                <!-- Crypto data will be loaded here -->
-                <tr>
-                    <td colspan="6" style="text-align: center; padding: 50px;">در حال بارگذاری داده‌ها...</td>
-                </tr>
-            </tbody>
-        </table>
+<div class="container">
+    <div class="header">
+        <h1>MAFIA RP</h1>
+        <div class="status">● وضعیت سرور: آنلاین (Online)</div>
     </div>
 
-    <script>
-        // Use a fixed exchange rate for simplicity, as real-time rates can fluctuate.
-        // In a real app, you'd fetch this or use a more robust method.
-        const exchangeRate = 50000; // Example: 1 USD = 50,000 Toman
-        const coins = [
-            { id: 'bitcoin', name: 'بیت‌کوین', symbol: 'BTC', icon: '/mnt/data/bitcoin_icon.png' },
-            { id: 'ethereum', name: 'اتریوم', symbol: 'ETH', icon: '/mnt/data/ethereum_icon.png' },
-            { id: 'solana', name: 'سولانا', symbol: 'SOL', icon: '/mnt/data/solana_icon.png' },
-            { id: 'ripple', name: 'ریپل', symbol: 'XRP', icon: '/mnt/data/xrp_icon.png' },
-            { id: 'dogecoin', name: 'دوج‌کوین', symbol: 'DOGE', icon: '/mnt/data/dogecoin_icon.png' },
-            { id: 'cardano', name: 'کاردانو', symbol: 'ADA', icon: '/mnt/data/cardano_icon.png' },
-            { id: 'tether', name: 'تتر', symbol: 'USDT', icon: '/mnt/data/usdt_icon.png' }
-        ];
+    <div class="nav-grid">
+        <a href="لینک-گروه-روبیکا" class="btn">ورود به فروم (روبیکا)</a>
+        <a href="لینک-فرم-شکایات" class="btn">پنل شکایات (فرم)</a>
+    </div>
 
-        async function fetchCryptoData() {
-            const cryptoListBody = document.getElementById('crypto-list');
-            cryptoListBody.innerHTML = '<tr><td colspan="6" style="text-align: center; padding: 50px;">در حال بارگذاری داده‌ها...</td></tr>';
-            let totalChange = 0;
-            let coinCount = 0;
+    <div class="rules">
+        <h2>قوانین سرور Mafia RP</h2>
+        <ol>
+            <li><strong>عدم رعایت RP:</strong> هرگونه فعالیت غیرواقع‌گرایانه (Non-RP) منجر به اخراج از سرور می‌شود.</li>
+            <li><strong>توهین و بی‌احترامی:</strong> محیط سرور برای رقابت است، نه توهین. رعایت احترام ادمین و بازیکنان الزامیست.</li>
+            <li><strong>چیت و مود غیرمجاز:</strong> استفاده از هرگونه فایل مخرب یا تقلب، بنِ دائمی (IP Ban) به همراه دارد.</li>
+            <li><strong>تبلیغات:</strong> تبلیغ هرگونه سرور دیگر در محیط Mafia RP ممنوع است.</li>
+            <li><strong>نقش‌بازی کردن (Roleplay):</strong> هر بازیکن باید شخصیت خود را جدی بگیرد و در نقش باقی بماند.</li>
+        </ol>
+    </div>
+</div>
 
-            try {
-                const response = await fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=' + coins.map(c => c.id).join(','));
-                const data = await response.json();
-
-                if (!Array.isArray(data)) {
-                    throw new Error("Invalid data format received from API.");
-                }
-
-                cryptoListBody.innerHTML = ''; // Clear loading message
-                data.forEach(coinData => {
-                    const coinInfo = coins.find(c => c.id === coinData.id);
-                    if (!coinInfo) return; // Skip if coin not in our list
-
-                    const priceUSD = coinData.current_price;
-                    const priceToman = priceUSD * exchangeRate;
-                    const priceChange24h = coinData.price_change_percentage_24h;
-                    const marketCap = coinData.market_cap;
-                    const volume24h = coinData.total_volume;
-
-                    totalChange += priceChange24h;
-                    coinCount++;
-
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
-                        <td class="coin-name">
-                            <img src="${coinInfo.icon || 'default_icon.png'}" alt="${coinInfo.symbol} icon">
-                            <div>${coinInfo.name}<br><span style="font-size: 0.8em; color: #aaa;">${coinInfo.symbol}</span></div>
-                        </td>
-                        <td class="price-usd">$${priceUSD.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
-                        <td class="price-toman">${priceToman.toLocaleString('fa-IR')} تومان</td>
-                        <td class="change ${priceChange24h >= 0 ? 'positive' : 'negative'}">
-                            ${priceChange24h >= 0 ? '▲' : '▼'} ${Math.abs(priceChange24h).toFixed(2)}%
-                        </td>
-                        <td class="market-cap">$${marketCap.toLocaleString()}</td>
-                        <td class="volume">$${volume24h.toLocaleString()}</td>
-                    `;
-                    cryptoListBody.appendChild(row);
-                });
-
-                // AI Insight Calculation
-                const averageChange = coinCount > 0 ? totalChange / coinCount : 0;
-                let aiStatusText = "";
-                if (averageChange > 2) {
-                    aiStatusText = "روند صعودی قوی، فشار خرید بالا است.";
-                } else if (averageChange > 0.5) {
-                    aiStatusText = "روند کمی صعودی، بازار مثبت است.";
-                } else if (averageChange < -2) {
-                    aiStatusText = "روند نزولی قوی، فشار فروش زیاد است.";
-                } else if (averageChange < -0.5) {
-                    aiStatusText = "روند کمی نزولی، بازار محتاط است.";
-                } else {
-                    aiStatusText = "بازار در وضعیت تعادل است.";
-                }
-                document.getElementById('ai-status').textContent = aiStatusText;
-
-            } catch (error) {
-                console.error("Error fetching crypto data:", error);
-                cryptoListBody.innerHTML = '<td colspan="6" style="text-align: center; color: #ff6b6b;">خطا در بارگذاری داده‌ها. لطفاً بعداً دوباره امتحان کنید.</td>';
-                document.getElementById('ai-status').textContent = "خطا در دریافت اطلاعات بازار.";
-            }
-        }
-
-        // Initial fetch and set interval for updates
-        fetchCryptoData();
-        setInterval(fetchCryptoData, 60000); // Update every 60 seconds
-    </script>
 </body>
 </html>
-""")
 
-file_path = "/mnt/data/dashboard.html"
-with open(file_path, "w", encoding="utf-8") as f:
-    f.write(html_content)
-
-print(f"File saved successfully to: {file_path}")
 
 
