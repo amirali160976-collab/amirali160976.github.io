@@ -1,0 +1,271 @@
+
+<!DOCTYPE html>
+
+<html lang="fa" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MafiaCity Roleplay - جامعه GTA Roleplay</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet"> <!-- فونت Orbitron برای عناوین و Vazirmatn برای متن -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> <!-- برای آیکون‌ها -->
+</head>
+
+
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <img src="images/logo.png" alt="MafiaCity RP Logo" class="logo">
+                <h1>MafiaCity RP</h1>
+            </div>
+            <nav id="nav-menu">
+                <ul>
+                    <li><a href="#home">صفحه اصلی</a></li>
+                    <li><a href="#about">درباره ما</a></li>
+                    <li><a href="#server">وضعیت سرور</a></li>
+                    <li><a href="#news">آخرین اخبار</a></li>
+                    <li><a href="#download">دانلود</a></li>
+                    <li><a href="#rules">قوانین</a></li>
+                    <li><a href="#forum">انجمن</a></li>
+                    <li><a href="#shop">فروشگاه</a></li>
+                </ul>
+            </nav>
+            <div class="header-right">
+                 <a href="#login" class="btn btn-auth">ورود/ثبت‌نام</a>
+                <div class="menu-toggle" id="mobile-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+
+<section id="home" class="hero-section">
+        <div class="hero-bg-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h2 class="hero-title">MafiaCity ROLEPLAY</h2>
+                <p class="hero-subtitle">بهترین تجربه نقش‌آفرینی در GTA SA</p>
+                
+                <div class="hero-stats">
+                    <span><i class="fas fa-users"></i> پلیرهای آنلاین: <strong><?php echo $online_players; ?></strong> / 250</span>
+                </div>
+
+                <div class="hero-buttons">
+                    <a href="#download" class="btn btn-primary">شروع بازی</a>
+                    <a href="#server" class="btn btn-secondary">وضعیت سرور</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <section id="server" class="section-padding server-status">
+        <div class="container">
+            <div class="server-info-grid">
+                <div class="info-box">
+                    <i class="fas fa-users"></i>
+                    <h3>آنلاین</h3>
+                    <p class="online"><?php echo $online_players; ?> / 250</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="about" class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2>درباره جامعه ما</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>MafiaCity Roleplay، مقصدی نهایی برای علاقه‌مندان به دنیای پرهیجان GTA SA Roleplay است. ما با ترکیبی از گرافیک خیره‌کننده، سیستم‌های عمیق و جامعه‌ای فعال، تجربه‌ای بی‌نظیر را برای شما فراهم می‌کنیم.</p>
+                    <p>از خیابان‌های شلوغ شهر گرفته تا فعالیت‌های مجرمانه و اقتصادی، هر تصمیمی که بگیرید، دنیای ما را شکل می‌دهد. به ما بپیوندید و داستان خود را بسازید.</p>
+                    <a href="#forum" class="btn btn-outline">کاوش در انجمن</a>
+                </div>
+                <div class="about-image">
+                    <img src="images/rp_scene_dark.jpg" alt="Roleplay Scene"
+                </div>
+            </div>
+        </div>
+    
+    </section>
+
+
+
+
+    <section id="server" class="section-padding server-status">
+        <div class="container">
+            <div class="section-header">
+                <h2>وضعیت سرور</h2>
+            </div>
+            <div class="server-info-grid">
+                <div class="info-box">
+                    <i class="fas fa-server"></i>
+                    <h3>IP سرور</h3>
+                    <p>185.100.80.50:7777</p>
+                </div>
+                <div class="info-box">
+                    <i class="fas fa-users"></i>
+                    <h3>پلیرهای آنلاین</h3>
+                    <p class="online">215 / 250</p>
+                </div>
+                <div class="info-box">
+                    <i class="fas fa-wifi"></i>
+                    <h3>وضعیت</h3>
+                    <p class="status-online">آنلاین</p>
+                </div>
+                <div class="info-box">
+                    <i class="fas fa-download"></i>
+                    <h3>پینگ</h3>
+                    <p>50ms</p>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    
+    <section id="news" class="section-padding news-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>آخرین اخبار و آپدیت‌ها</h2>
+            </div>
+
+            <div class="news-grid">
+                <div class="news-item card">
+                    <img src="images/news1.jpg" alt="News 1">
+                    <div class="card-content">
+                        <h4>سیستم مالیات جدید VIP</h4>
+                        <p>جزئیات آپدیت سیستم مالیاتی سرور برای پلیرهای VIP و تغییرات آن...</p>
+                        <a href="#">بیشتر بخوانید <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="news-item card">
+                    <img src="images/news2.jpg" alt="News 2">
+                    <div class="card-content">
+                        <h4>آپدیت دوربین حمل پول (VIP)</h4>
+                        <p>امکانات جدید برای سرقت‌های سطح بالا با دوربین‌های مداربسته VIP...</p>
+                        <a href="#">بیشتر بخوانید <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                </div>
+
+                <div class="news-item card">
+                    <img src="images/news3.jpg" alt="News 3">
+                    <div class="card-content">
+                        <h4>آپدیت فِرِندلی (خصوصی)</h4>
+                        <p>افزایش امکانات برای پلیرهای VIP شامل فِرِندلی‌های خصوصی و...</p>
+                        <a href="#">بیشتر بخوانید <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="news-item card">
+                    <img src="images/news4.jpg" alt="News 4">
+                    <div class="card-content">
+                        <h4>فعال‌سازی سیستم PickUp</h4>
+                        <p>سیستم جدید PickUp برای جابجایی سریع‌تر و امن‌تر آیتم‌ها...</p>
+                        <a href="#">بیشتر بخوانید <i class="fas fa-arrow-right"></i></a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <section id="download" class="section-padding download-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>آماده پیوستن هستید؟</h2>
+            </div>
+
+
+            <p class="download-intro">با چند کلیک ساده، وارد دنیای هیجان‌انگیز MafiaCity Roleplay شوید:</p>
+            <div class="download-steps">
+                <div class="step card">
+                    <span><i class="fas fa-download"></i></span>
+                    <h4>دانلود لانچر</h4>
+                    <p>آخرین نسخه لانچر اختصاصی MafiaCity RP را دانلود کنید.</p>
+                    <a href="#" class="btn btn-primary">دانلود لانچر</a>
+                </div>
+
+
+                <div class="step card">
+                    <span><i class="fas fa-play"></i></span>
+                    <h4>نصب و اجرا</h4>
+                    <p>لانچر را نصب کرده و با کلیک بر روی دکمه "اجرا"، وارد بازی شوید.</p>
+                    <a href="#" class="btn btn-secondary">راهنمای نصب</a>
+                </div>
+
+
+                <div class="step card">
+                    <span><i class="fas fa-server"></i></span>
+                    <h4>اتصال به سرور</h4>
+                    <p>IP سرور را در لانچر وارد کرده و به جمع ما بپیوندید.</p>
+                    <a href="#server" class="btn btn-primary">IP سرور</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    
+    <footer>
+
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <img src="images/logo.png" alt="Logo" class="footer-logo">
+                    <p>جامعه MafiaCity Roleplay، مکانی برای ساخت داستان‌های منحصر به فرد شما در دنیای GTA SA.</p>
+                    <div class="social-icons">
+                        <a href="#" title="Discord"><i class="fab fa-discord"></i></a>
+                        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>لینک‌های سریع</h4>
+                    <ul>
+                        <li><a href="#about">درباره ما</a></li>
+                        <li><a href="#news">اخبار</a></li>
+                        <li><a href="#rules">قوانین</a></li>
+                        <li><a href="#forum">انجمن</a></li>
+                        <li><a href="#shop">فروشگاه</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>پشتیبانی</h4>
+                    <p><i class="fas fa-envelope"></i> support@MafiaCityrp.ir</p>
+                    <p><i class="fas fa-phone"></i> +98 123 456 7890</p>
+                    <p><i class="fas fa-map-marker-alt"></i> تهران، ایران</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 MafiaCity Roleplay. تمامی حقوق برای جامعه MafiaCity Roleplay محفوظ است.</p>
+            </div>
+        </div>
+
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+
+
+
+</html>
