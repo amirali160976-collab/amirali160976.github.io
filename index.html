@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090909">
+<meta name="description" content="سایت اختصاصی کلن SCP112 در بازی پسرخوانده؛ جدول کاپ‌ها، مسابقات و قرعه‌کشی">
+<title>SCP112 | قلمرو پادشاهان</title>
+
+<style>
+:root {
+    --bg: #080808;
+    --panel: #121212;
+    --red: #ed2028;
+    --dark-red: #61090d;
+    --gold: #ffd56a;
+    --gold2: #c99a2e;
+    --text: #f6f3ed;
+    --muted: #aaa5a0;
+    --border: rgba(255, 213, 106, .22);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 85px;
+}
+
+body {
+    font-family: Tahoma, Arial, sans-serif;
+    color: var(--text);
+    background:
+        radial-gradient(ellipse at 50% 0%, #35090b 0%, transparent 45%),
+        var(--bg);
+    line-height: 1.9;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font-family: inherit;
+}
+
+.top-line {
+    height: 3px;
+    background: linear-gradient(90deg, #650000, var(--gold), var(--red), var(--gold));
+    box-shadow: 0 0 18px #ed2028;
+}
+
+header {
+    padding: 30px 16px 24px;
+    text-align: center;
+    background:
+        radial-gradient(ellipse at center, rgba(130,0,0,.25), transparent 70%);
+}
+
+.logo {
+    width: 145px;
+    height: 145px;
+    margin: 0 auto 18px;
+    position: relative;
+    border: 3px solid var(--gold);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle, #451012, #090909 72%);
+    box-shadow:
+        0 0 12px #ff2424,
+        0 0 35px rgba(237,32,40,.3),
+        inset 0 0 22px rgba(255,213,106,.2);
+}
+
+.logo::before {
+    content: "";
+    position: absolute;
+    inset: 7px;
+    border: 1px solid rgba(255,213,106,.5);
+    border-radius: 50%;
+}
+
+.logo-crown {
+    color: var(--gold);
+    font-size: 32px;
+    line-height: 1.2;
+    text-shadow: 0 0 12px #ffb900;
+}
+
+.logo-name {
+    color: var(--gold);
+    font-size: 27px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-shadow: 0 0 15px #ed2028;
+}
+
+.logo-sub {
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: white;
+}
+
+header h1 {
+    font-size: clamp(25px, 5vw, 38px);
+    color: var(--gold);
+    text-shadow: 0 0 18px rgba(237,32,40,.55);
+}
+
+header p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.status {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 14px;
+    border: 1px solid var(--border);
+    background: rgba(0,0,0,.4);
+    border-radius: 30px;
+    padding: 5px 14px;
+    font-size: 12px;
+    color: var(--gold);
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #38dc81;
+    box-shadow: 0 0 10px #38dc81;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 7px;
+    padding: 12px 8px;
+    background: rgba(9,9,9,.95);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(12px);
+}
+
+nav a {
+    color: #e9dfce;
+    font-size: 12px;
+    padding: 6px 11px;
+    border-radius: 8px;
+    border: 1px solid #302020;
+    transition: .25s;
+}
+
+nav a:hover {
+    background: var(--dark-red);
+    color: var(--gold);
+    border-color: var(--gold2);
+    transform: translateY(-2px);
+}
+
+.hero {
+    min-height: 310px;
+    padding: 65px 18px 48px;
+    text-align: center;
+    background:
+        linear-gradient(180deg, rgba(0,0,0,.1), #080808),
+        radial-gradient(ellipse at 50% 25%, #650c10, #170708 48%, #080808 78%);
+    border-bottom: 1px solid rgba(255,213,106,.12);
+}
+
+.hero-label {
+    display: inline-block;
+    padding: 4px 15px;
+    border: 1px solid var(--gold2);
+    border-radius: 30px;
+    color: var(--gold);
+    font-size: 11px;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.hero h2 {
+    font-size: clamp(25px, 6vw, 42px);
+    line-height: 1.5;
+    color: white;
+    text-shadow: 0 0 25px rgba(237,32,40,.5);
+}
+
+.hero h2 span {
+    color: var(--gold);
+}
+
+.hero p {
+    max-width: 620px;
+    margin: 12px auto 20px;
+    color: #c5beb7;
+    font-size: 13px;
+}
+
+.button {
+    display: inline-block;
+    border: 1px solid var(--gold);
+    padding: 9px 19px;
+    border-radius: 9px;
+    margin: 5px;
+    font-size: 13px;
+    font-weight: bold;
+    transition: .25s;
+}
+
+.button-primary {
+    background: linear-gradient(135deg, #a30e14, #4a0508);
+    color: white;
+    box-shadow: 0 0 16px rgba(237,32,40,.2);
+}
+
+.button-secondary {
+    color: var(--gold);
+    background: #111;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px rgba(255,213,106,.22);
+}
+
+.container {
+    width: 92%;
+    max-width: 1000px;
+    margin: 26px auto;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.stat {
+    padding: 17px 8px;
+    text-align: center;
+    background: linear-gradient(145deg, #1c1111, #101010);
+    border: 1px solid var(--border);
+    border-radius: 13px;
+}
+
+.stat-icon {
+    font-size: 23px;
+}
+
+.stat-number {
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--gold);
+}
+
+.stat-label {
+    font-size: 11px;
+    color: var(--muted);
+}
+
+.card {
+    padding: 22px;
+    margin-bottom: 23px;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    background:
+        linear-gradient(145deg, rgba(30,20,20,.95), rgba(13,13,13,.98));
+    box-shadow: 0 10px 30px rgba(0,0,0,.2);
+}
+
+.section-title {
+    color: var(--gold);
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.section-description {
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 17px;
+}
+
+.title-line {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold2), transparent);
+    margin: 13px 0 19px;
+}
+
+.player {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 12px;
+    margin: 9px 0;
+    border: 1px solid #302222;
+    background: rgba(0,0,0,.3);
+    border-radius: 11px;
+    transition: .2s;
+}
+
+.player:hover {
+    border-color: var(--gold2);
+    transform: translateX(-3px);
+}
+
+.player-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+}
+
+.rank-icon {
+    width: 35px;
+    height: 35px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+    background: #241414;
+    color: var(--gold);
+    font-weight: bold;
+}
+
+.player-name {
+    font-size: 13px;
+    font-weight: bold;
+    overflow-wrap: anywhere;
+}
+
+.player-title {
+    color: var(--muted);
+    font-size: 10px;
+}
+
+.cups {
+    color: var(--gold);
+    font-size: 12px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.winner-box {
+    text-align: center;
+    padding: 27px 15px;
+    border: 1px solid var(--gold2);
+    border-radius: 15px;
+    background:
+        radial-gradient(ellipse at top, rgba(124,12,16,.65), transparent 75%),
+        #100c0c;
+    box-shadow: inset 0 0 30px rgba(255,213,106,.04);
+}
+
+.winner-crown {
+    font-size: 49px;
+    line-height: 1.5;
+    filter: drop-shadow(0 0 10px #d6a32e);
+}
+
+.winner-label {
+    font-size: 12px;
+    color: #ddd0b7;
+}
+
+.winner-name {
+    margin: 8px 0;
+    font-size: 27px;
+    font-weight: bold;
+    color: var(--gold);
+    text-shadow: 0 0 18px rgba(237,32,40,.55);
+    overflow-wrap: anywhere;
+}
+
+.winner-prize {
+    color: white;
+    font-size: 12px;
+}
+
+.timer-title {
+    text-align: center;
+    color: var(--gold);
+    margin: 24px 0 12px;
+    font-size: 14px;
+}
+
+.timer {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0,1fr));
+    gap: 8px;
+    max-width: 420px;
+    margin: auto;
+}
+
+.time-box {
+    padding: 12px 4px;
+    background: #080808;
+    border: 1px solid #4c2929;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.time-number {
+    display: block;
+    font-size: 23px;
+    color: var(--gold);
+    font-weight: bold;
+}
+
+.time-label {
+    font-size: 10px;
+    color: var(--muted);
+}
+
+.timer-message {
+    text-align: center;
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 10px;
+}
+
+.event {
+    display: flex;
+    gap: 13px;
+    align-items: flex-start;
+    padding: 13px 0;
+    border-bottom: 1px solid #292020;
+}
+
+.event:last-child {
+    border-bottom: 0;
+}
+
+.event-icon {
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    background: #301012;
+    border: 1px solid #6b2929;
+    border-radius: 12px;
+    font-size: 20px;
+}
+
+.event h3 {
+    font-size: 14px;
+    color: #fff;
+}
+
+.event p {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.tag {
+    display: inline-block;
+    color: var(--gold);
+    border: 1px solid #654c21;
+    border-radius: 5px;
+    padding: 1px 7px;
+    font-size: 10px;
+    margin-top: 5px;
+}
+
+.notice {
+    padding: 13px;
+    margin: 10px 0;
+    border-radius: 8px;
+    background: #0b0b0b;
+    border-right: 3px solid var(--red);
+}
+
+.notice strong {
+    color: var(--gold);
+}
+
+.notice p {
+    color: #ccc;
+    font-size: 12px;
+    margin-top: 3px;
+}
+
+.hall-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: 11px;
+}
+
+.hall-item {
+    text-align: center;
+    padding: 18px 8px;
+    background: #0d0d0d;
+    border: 1px solid #3a2920;
+    border-radius: 12px;
+}
+
+.hall-item .medal {
+    font-size: 28px;
+}
+
+.hall-item h3 {
+    color: var(--gold);
+    font-size: 13px;
+}
+
+.hall-item p {
+    color: var(--muted);
+    font-size: 11px;
+    overflow-wrap: anywhere;
+}
+
+.rule {
+    padding: 9px 0;
+    border-bottom: 1px solid #292020;
+    color: #d5d0ca;
+    font-size: 13px;
+}
+
+.rule:last-child {
+    border-bottom: 0;
+}
+
+.rule span {
+    color: var(--gold);
+    font-weight: bold;
+    margin-left: 7px;
+}
+
+footer {
+    padding: 32px 15px;
+    margin-top: 35px;
+    text-align: center;
+    background: #0b0b0b;
+    border-top: 1px solid var(--border);
+}
+
+.footer-logo {
+    font-weight: 900;
+    font-size: 24px;
+    color: var(--gold);
+    letter-spacing: 3px;
+}
+
+footer p {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.footer-line {
+    width: 90px;
+    height: 2px;
+    background: var(--red);
+    margin: 12px auto;
+}
+
+@media (max-width: 500px) {
+    nav {
+        gap: 5px;
+    }
+
+    nav a {
+        font-size: 11px;
+        padding: 5px 8px;
+    }
+
+    .container {
+        width: 94%;
+        margin: 18px auto;
+    }
+
+    .card {
+        padding: 16px;
+    }
+
+    .stats {
+        gap: 7px;
+    }
+
+    .stat {
+        padding: 12px 3px;
+    }
+
+    .stat-number {
+        font-size: 17px;
+    }
+
+    .stat-label {
+        font-size: 10px;
+    }
+
+    .player {
+        padding: 10px 8px;
+    }
+
+    .player-name {
+        font-size: 12px;
+    }
+
+    .cups {
+        font-size: 11px;
+    }
+
+    .hall-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    * {
+        transition: none !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="top-line"></div>
+
+<header>
+    <div class="logo">
+        <div class="logo-crown">♛</div>
+        <div class="logo-name">SCP112</div>
+        <div class="logo-sub">GODFATHER CLAN</div>
+    </div>
+
+    <h1>قلمرو پادشاهان</h1>
+    <p>سایت اختصاصی کلن SCP112 در بازی پسرخوانده</p>
+
+    <div class="status">
+        <span class="status-dot"></span>
+        <span>به قلمرو SCP112 خوش آمدید</span>
+    </div>
+</header>
+
+<nav>
+    <a href="#home">خانه</a>
+    <a href="#cups">🏆 کاپ‌ها</a>
+    <a href="#lottery">🎟️ قرعه‌کشی</a>
+    <a href="#events">⚔️ مسابقات</a>
+    <a href="#hall">👑 افتخارات</a>
+    <a href="#news">📢 اخبار</a>
+    <a href="#rules">📜 قوانین</a>
+</nav>
+
+<section class="hero" id="home">
+    <div class="hero-label">✦ SCP112 OFFICIAL CLAN ✦</div>
+
+    <h2>اینجا قلمرو <span>پادشاهان</span> است</h2>
+
+    <p>
+        به خانه اعضای کلن SCP112 خوش آمدید؛
+        جایی برای رقابت، افتخار، مسابقات و ثبت نام قهرمانان
+        دنیای پسرخوانده.
+    </p>
+
+    <a class="button button-primary" href="#cups">مشاهده رتبه‌بندی 🏆</a>
+    <a class="button button-secondary" href="#lottery">برنده قرعه‌کشی 🎟️</a>
+</section>
+
+<main class="container">
+
+    <section class="stats">
+        <div class="stat">
+            <div class="stat-icon">👑</div>
+            <span class="stat-number">SCP112</span>
+            <span class="stat-label">نام کلن</span>
+        </div>
+
+        <div class="stat">
+            <div class="stat-icon">🏆</div>
+            <span class="stat-number">5</span>
+            <span class="stat-label">بازیکن ثبت‌شده نمونه</span>
+        </div>
+
+        <div class="stat">
+            <div class="stat-icon">🔥</div>
+            <span class="stat-number">2026</span>
+            <span class="stat-label">سال فعالیت سایت</span>
+        </div>
+    </section>
+
+    <!--
+    ==========================================
+    تغییر کاپ‌ها:
+    نام بازیکن و عدد کاپ را در همین بخش تغییر بده.
+    برای اضافه‌کردن بازیکن، یک بلوک player را کپی کن.
+    ==========================================
+    -->
+
+    <section class="card" id="cups">
+        <h2 class="section-title">🏆 تالار رتبه‌بندی بازیکنان</h2>
+        <p class="section-description">
+            جدول کاپ‌های اعضای کلن SCP112
+        </p>
+        <div class="title-line"></div>
+
+        <div class="player">
+            <div class="player-info">
+                <div class="rank-icon">🥇</div>
+                <div>
+                    <div class="player-name">امیرعلی</div>
+                    <div class="player-title">سلطان کاپ‌ها</div>
+                </div>
+            </div>
+            <div class="cups">🏆 12500 کاپ</div>
+        </div>
+
+        <div class="player">
+            <div class="player-info">
+                <div class="rank-icon">🥈</div>
+                <div>
+                    <div class="player-name">بازیکن دوم</div>
+                    <div class="player-title">قهرمان کلن</div>
+                </div>
+            </div>
+            <div class="cups">🏆 9800 کاپ</div>
+        </div>
+
+        <div class="player">
+            <div class="player-info">
+                <div class="rank-icon">🥉</div>
+                <div>
+                    <div class="player-name">بازیکن سوم</div>
+                    <div class="player-title">بازیکن برتر</div>
+                </div>
+            </div>
+            <div class="cups">🏆 7500 کاپ</div>
+        </div>
+
+        <div class="player">
+            <div class="player-info">
+                <div class="rank-icon">04</div>
+                <div>
+                    <div class="player-name">بازیکن چهارم</div>
+                    <div class="player-title">عضو کلن</div>
+                </div>
+            </div>
+            <div class="cups">🏆 6200 کاپ</div>
+        </div>
+
+        <div class="player">
+            <div class="player-info">
+                <div class="rank-icon">05</div>
+                <div>
+                    <div class="player-name">بازیکن پنجم</div>
+                    <div class="player-title">عضو کلن</div>
+                </div>
+            </div>
+            <div class="cups">🏆 5100 کاپ</div>
+        </div>
+
+        <p class="section-description" style="margin-top:15px;margin-bottom:0">
+            ⚠️ نام‌ها و کاپ‌های بالا نمونه هستند؛ قبل از انتشار، آن‌ها را با اطلاعات واقعی جایگزین کن.
+        </p>
+    </section>
+
+    <!--
+    ==========================================
+    قرعه‌کشی:
+    عبارت «نام برنده اینجاست» را با اسم برنده عوض کن.
+    تاریخ قرعه‌کشی را در متغیر lotteryDate پایین کد تنظیم کن.
+    ==========================================
+    -->
+
+    <section class="card" id="lottery">
+        <h2 class="section-title">🎟️ بلیت طلایی SCP112</h2>
+        <p class="section-description">
+            معرفی برنده قرعه‌کشی و شمارش معکوس دوره بعد
+        </p>
+
+        <div class="winner-box">
+            <div class="winner-crown">👑</div>
+            <div class="winner-label">برنده اعلام‌شده قرعه‌کشی</div>
+
+            <div class="winner-name">نام برنده اینجاست</div>
+
+            <div class="winner-prize">🎁 جایزه: بلیت طلایی</div>
+        </div>
+
+        <h3 class="timer-title">⏳ زمان باقی‌مانده تا قرعه‌کشی بعدی</h3>
+
+        <div class="timer">
+            <div class="time-box">
+                <span class="time-number" id="days">00</span>
+                <span class="time-label">روز</span>
+            </div>
+
+            <div class="time-box">
+                <span class="time-number" id="hours">00</span>
+                <span class="time-label">ساعت</span>
+            </div>
+
+            <div class="time-box">
+                <span class="time-number" id="minutes">00</span>
+                <span class="time-label">دقیقه</span>
+            </div>
+
+            <div class="time-box">
+                <span class="time-number" id="seconds">00</span>
+                <span class="time-label">ثانیه</span>
+            </div>
+        </div>
+
+        <p class="timer-message" id="timerMessage">
+            تاریخ قرعه‌کشی را در کد تنظیم کن.
+        </p>
+
+        <p class="section-description" style="margin-top:18px;margin-bottom:0">
+            این شمارش معکوس فقط زمان را نمایش می‌دهد و قرعه‌کشی واقعی انجام نمی‌دهد.
+        </p>
+    </section>
+
+    <!-- تاریخچه برندگان -->
+
+    <section class="card" id="hall">
+        <h2 class="section-title">👑 تالار افتخارات</h2>
+        <p class="section-description">
+            نام قهرمانان و برندگان دوره‌های گذشته
+        </p>
+
+        <div class="hall-grid">
+            <div class="hall-item">
+                <div class="medal">🎟️</div>
+                <h3>برنده دوره اول</h3>
+                <p>نام برنده اول</p>
+            </div>
+
+            <div class="hall-item">
+                <div class="medal">🏆</div>
+                <h3>قهرمان کاپ‌ها</h3>
+                <p>نام قهرمان کاپ‌ها</p>
+            </div>
+
+            <div class="hall-item">
+                <div class="medal">⚔️</div>
+                <h3>قهرمان مسابقات</h3>
+                <p>نام قهرمان مسابقات</p>
+            </div>
+
+            <div class="hall-item">
+                <div class="medal">💎</div>
+                <h3>عضو ویژه</h3>
+                <p>نام عضو ویژه</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- مسابقات -->
+
+    <section class="card" id="events">
+        <h2 class="section-title">⚔️ میدان رقابت</h2>
+        <p class="section-description">
+            برنامه مسابقات و رویدادهای کلن
+        </p>
+
+        <div class="event">
+            <div class="event-icon">🥇</div>
+            <div>
+                <h3>مسابقه قهرمان کاپ‌ها</h3>
+                <p>رقابت اعضا برای کسب رتبه برتر جدول کاپ‌ها.</p>
+                <span class="tag">رتبه‌بندی</span>
+            </div>
+        </div>
+
+        <div class="event">
+            <div class="event-icon">🎟️</div>
+            <div>
+                <h3>قرعه‌کشی بلیت طلایی</h3>
+                <p>زمان و نتیجه قرعه‌کشی را در این قسمت اعلام کن.</p>
+                <span class="tag">قرعه‌کشی</span>
+            </div>
+        </div>
+
+        <div class="event">
+            <div class="event-icon">👑</div>
+            <div>
+                <h3>معرفی بازیکن برتر هفته</h3>
+                <p>هر هفته نام بازیکن منتخب را در سایت ثبت کن.</p>
+                <span class="tag">افتخارات</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- اخبار -->
+
+    <section class="card" id="news">
+        <h2 class="section-title">📢 مرکز اخبار کلن</h2>
+        <p class="section-description">
+            اطلاعیه‌ها و خبرهای مهم SCP112
+        </p>
+
+        <div class="notice">
+            <strong>🔥 اطلاعیه اول</strong>
+            <p>خبر جدید کلن را از این قسمت اعلام کن.</p>
+        </div>
+
+        <div class="notice">
+            <strong>🏆 اطلاعیه دوم</strong>
+            <p>نتایج جدید جدول کاپ‌ها را در این قسمت بنویس.</p>
+        </div>
+
+        <div class="notice">
+            <strong>🎟️ اطلاعیه سوم</strong>
+            <p>زمان قرعه‌کشی و اسم برنده را اعلام کن.</p>
+        </div>
+    </section>
+
+    <!-- قوانین -->
+
+    <section class="card" id="rules">
+        <h2 class="section-title">🛡️ قوانین کلن SCP112</h2>
+
+        <div class="rule"><span>01.</span> احترام به اعضای کلن الزامی است.</div>
+        <div class="rule"><span>02.</span> اطلاعات کاپ‌ها را تا حد امکان دقیق و به‌روز ثبت کنید.</div>
+        <div class="rule"><span>03.</span> اخبار و اطلاعیه‌های کلن را دنبال کنید.</div>
+        <div class="rule"><span>04.</span> نتایج مسابقات باید منصفانه اعلام شوند.</div>
+        <div class="rule"><span>05.</span> در قرعه‌کشی، نتیجه را شفاف و درست اعلام کنید.</div>
+    </section>
+
+    <!-- درباره کلن -->
+
+    <section class="card">
+        <h2 class="section-title">♛ درباره SCP112</h2>
+        <p style="font-size:13px;color:#d1cbc2">
+            SCP112 یک نام برای گردهمایی بازیکنان بازی پسرخوانده است.
+            این سایت برای نمایش رتبه‌بندی اعضا، اطلاع‌رسانی،
+            معرفی برندگان و ثبت افتخارات کلن طراحی شده است.
+        </p>
+        <div class="title-line"></div>
+        <p style="font-size:12px;color:var(--gold);text-align:center">
+            قدرت در اتحاد است؛ افتخار برای قهرمانان.
+        </p>
+    </section>
+
+</main>
+
+<footer>
+    <div class="footer-logo">SCP112</div>
+    <div class="footer-line"></div>
+    <p>سایت اختصاصی کلن پسرخوانده</p>
+    <p>ساخته‌شده برای جامعه بازیکنان SCP112</p>
+    <p style="margin-top:12px">© 2026 SCP112 — تمامی حقوق محفوظ است.</p>
+</footer>
+
+<script>
+/*
+==========================================
+تنظیم تاریخ قرعه‌کشی بعدی:
+
+عددها را به شکل سال، ماه، روز، ساعت و دقیقه وارد کن.
+ماه میلادی از 1 تا 12 است.
+
+مثال:
+new Date(2026, 10, , 20, 0)
+
+این مثال یعنی 1 نوامبر 2026 ساعت 20:00
+توجه: در JavaScript ماه از صفر شروع می‌شود؛
+بنابراین برای نوامبر عدد 10 وارد شده است.
+==========================================
+*/
+
+var lotteryDate = new Date(2026, 9, 20, 20, 0);
+
+function updateCountdown() {
+    var now = new Date().getTime();
+    var distance = lotteryDate.getTime() - now;
+
+    var message = document.getElementById("timerMessage");
+
+    if (distance <= 0) {
+        document.getElementById("days").textContent = "00";
+        document.getElementById("hours").textContent = "00";
+        document.getElementById("minutes").textContent = "00";
+        document.getElementById("seconds").textContent = "00";
+
+        message.textContent = "زمان تعیین‌شده فرا رسیده است؛ تاریخ دوره بعد را تنظیم کن.";
+        return;
+    }
+
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+    var minutes = Math.floor((distance / (1000 * 60)) % 60);
+    var seconds = Math.floor((distance / 1000) % 60);
+
+    document.getElementById("days").textContent = String(days).padStart(2, "0");
+    document.getElementById("hours").textContent = String(hours).padStart(2, "0");
+    document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
+    document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
+
+    message.textContent = "زمان قرعه‌کشی را به وقت محلی دستگاهت تنظیم کن.";
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+</script>
+
+</body>
+</html>
